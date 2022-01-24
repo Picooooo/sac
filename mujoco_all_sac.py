@@ -88,7 +88,8 @@ def parse_args():
     parser.add_argument('--mode', type=str, default='local')
     parser.add_argument('--log_dir', type=str, default=None)
     args = parser.parse_args()
-
+    env_name = args.env
+    args.log_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'log', env_name, 'SAC'))
     return args
 
 def run_experiment(variant):
